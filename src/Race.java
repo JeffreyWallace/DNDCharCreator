@@ -12,7 +12,7 @@ public class Race {
     public ArrayList<String> resistances=new ArrayList<>();
     public ArrayList<String> spells=new ArrayList<>();
     public String abilityDescription="";
-    public int feat=0;
+    public ArrayList<String> feat=new ArrayList<>();
     public String description="";
     public Race() {
         name="human";
@@ -21,7 +21,7 @@ public class Race {
         skill_Proficiencies.put("Choose",1);
         language_proficiencies.add("Common");
         language_proficiencies.add("Choose");
-        feat=1;
+        feat.add("choose");
         spells.add("lvl0 Light at level 5");
     }
 

@@ -37,17 +37,23 @@ public class Player {
         resistances=currentRace.resistances;
         //add asi by looping through all asi and adding them
         for(String asi:ability_Scores.keySet()) {
-            currentRace.getASI(asi);
+            int tempasi=currentRace.getASI(asi);
+            System.out.println(asi + " + " + tempasi);
         }
 
         //add language proficiencies by looping through the races languages and calling the
         //add language method that will add a
         //language if the word is choose it prompts the user to input a language or
         //select from a list of viable languages
+        for(String lang:currentRace.language_proficiencies) {
+            addLanguageProf(lang);
+        }
 
         return 0;
     }
     public void addLanguageProf(String lang){
+        //need to add duplication protection to this function
+
         if(lang.equalsIgnoreCase("choose")) {
             System.out.println("Choose language proficiency");
             String tempLang="";
@@ -56,6 +62,9 @@ public class Player {
                 tempLang=input.nextLine();
                 //validate the language
             }
+            language_proficiencies.add(tempLang);
+        } else {
+            language_proficiencies.add(lang);
         }
     }
 }
